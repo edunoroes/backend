@@ -50,4 +50,5 @@ end
 gem 'devise'
 gem 'devise-jwt', '~> 0.10.0'
 gem 'warden-jwt_auth', '~> 0.7.0'
+gem 'carrierwave', '~> 2.0'
 
