@@ -9,6 +9,7 @@ Rails.application.configure do
   config.enable_reloading = true
 
   # Do not eager load code on boot.
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.eager_load = false
 
   # Show full error reports.
