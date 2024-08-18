@@ -15,7 +15,7 @@ gem "puma", ">= 5.0"
 gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", ">= 4.0.1"
+
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -52,4 +52,6 @@ gem 'devise'
 gem 'devise-jwt', '~> 0.10.0'
 gem 'warden-jwt_auth', '~> 0.7.0'
 gem 'carrierwave', '~> 2.0'
+gem 'sidekiq'
+gem "redis"
 

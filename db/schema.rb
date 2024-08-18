@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_18_010927) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_18_015347) do
   create_table "allowlisted_jwts", force: :cascade do |t|
     t.string "jti", null: false
     t.string "aud"
@@ -26,6 +26,45 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_18_010927) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_documents_on_user_id"
+  end
+
+  create_table "invoices", force: :cascade do |t|
+    t.string "series", null: false
+    t.string "invoice_number", null: false
+    t.datetime "issue_datetime", null: false
+    t.string "emitent", null: false
+    t.string "recipient", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.string "ncm"
+    t.string "cfop"
+    t.string "commercial_unit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "summaries", force: :cascade do |t|
+    t.decimal "total_product_value", precision: 15, scale: 2, null: false
+    t.decimal "total_tax_value", precision: 15, scale: 2, null: false
+    t.integer "invoice_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["invoice_id"], name: "index_summaries_on_invoice_id"
+  end
+
+  create_table "taxes", force: :cascade do |t|
+    t.decimal "icms_value", precision: 15, scale: 2, null: false
+    t.decimal "ipi_value", precision: 15, scale: 2, null: false
+    t.decimal "pis_value", precision: 15, scale: 2, null: false
+    t.decimal "cofins_value", precision: 15, scale: 2, null: false
+    t.integer "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_taxes_on_product_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,4 +84,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_18_010927) do
 
   add_foreign_key "allowlisted_jwts", "your_user_tables", on_delete: :cascade
   add_foreign_key "documents", "users"
+  add_foreign_key "summaries", "invoices"
+  add_foreign_key "taxes", "products"
 end
