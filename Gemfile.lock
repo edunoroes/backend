@@ -130,7 +130,8 @@ GEM
       concurrent-ruby (~> 1.0)
       zeitwerk (~> 2.6)
     erubi (1.13.0)
-    ffi (1.17.0)
+    ffi (1.17.0-x86_64-darwin)
+    ffi (1.17.0-x86_64-linux-gnu)
     globalid (1.2.1)
       activesupport (>= 6.1)
     htmlentities (4.3.4)
@@ -175,6 +176,8 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     nio4r (2.7.3)
+    nokogiri (1.16.7-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -245,6 +248,7 @@ GEM
       logger
       rack (>= 2.2.4)
       redis-client (>= 0.22.2)
+    sqlite3 (1.7.3-x86_64-darwin)
     sqlite3 (1.7.3-x86_64-linux)
     ssrf_filter (1.1.2)
     stringio (3.1.1)
@@ -266,6 +270,7 @@ GEM
     zeitwerk (2.6.17)
 
 PLATFORMS
+  x86_64-darwin-20
   x86_64-linux
 
 DEPENDENCIES
@@ -290,7 +295,7 @@ DEPENDENCIES
   warden-jwt_auth (~> 0.7.0)
 
 RUBY VERSION
-   ruby 3.0.0p0
+   ruby 3.2.2p53
 
 BUNDLED WITH
    2.2.3
