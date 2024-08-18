@@ -83,6 +83,7 @@ GEM
     bootsnap (1.18.4)
       msgpack (~> 1.2)
     builder (3.3.0)
+    byebug (11.1.3)
     carrierwave (2.2.6)
       activemodel (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -247,6 +248,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  byebug
   carrierwave (~> 2.0)
   debug
   devise
