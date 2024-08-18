@@ -54,4 +54,4 @@ gem 'warden-jwt_auth', '~> 0.7.0'
 gem 'carrierwave', '~> 2.0'
 gem 'sidekiq'
 gem "redis"
-
+gem 'nokogiri'

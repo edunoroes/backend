@@ -1,5 +1,7 @@
 class XmlsController < ApplicationController
+  before_action :authenticate_user!
   def upload
+    
     # Verifica se o arquivo foi enviado
     if params[:file].present?
       # Salva o arquivo em uma pasta temporária
@@ -13,7 +15,7 @@ class XmlsController < ApplicationController
       end
 
       # Envia o job para processamento
-      ProcessXmlJob.perform_later(file_path.to_s)
+      ProcessXmlJob.perform_later(file_path.to_s, current_user.id)
 
       render json: { message: 'Arquivo recebido e job iniciado.' }, status: :ok
     else

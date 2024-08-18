@@ -265,6 +265,7 @@ DEPENDENCIES
   devise-jwt (~> 0.10.0)
   jbuilder
   jsonapi-serializer
+  nokogiri
   puma (>= 5.0)
   rack-cors
   rails (~> 7.1.3, >= 7.1.3.4)
