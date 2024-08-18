@@ -55,3 +55,5 @@ gem 'carrierwave', '~> 2.0'
 gem 'sidekiq'
 gem "redis"
 gem 'nokogiri'
+gem 'axlsx_rails'
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_18_202254) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_18_205324) do
   create_table "allowlisted_jwts", force: :cascade do |t|
     t.string "jti", null: false
     t.string "aud"
@@ -80,10 +80,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_18_202254) do
     t.decimal "ipi_value", precision: 15, scale: 2, null: false
     t.decimal "pis_value", precision: 15, scale: 2, null: false
     t.decimal "cofins_value", precision: 15, scale: 2, null: false
-    t.integer "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_taxes_on_product_id"
+    t.integer "invoice_id", null: false
+    t.index ["invoice_id"], name: "index_taxes_on_invoice_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -108,5 +108,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_18_202254) do
   add_foreign_key "invoices", "users"
   add_foreign_key "products", "invoices"
   add_foreign_key "summaries", "invoices"
-  add_foreign_key "taxes", "products"
+  add_foreign_key "taxes", "invoices"
 end

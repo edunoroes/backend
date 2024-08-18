@@ -60,6 +60,15 @@ class ProcessXmlJob < ApplicationJob
 
     # Iterar sobre os produtos
     imposto_total = nfe.xpath('//xmlns:total')
+    
+    Taxe.create!(
+      icms_value: imposto_total.at_xpath('xmlns:ICMSTot/xmlns:vICMS').content.to_f,
+      ipi_value: imposto_total.at_xpath('xmlns:ICMSTot/xmlns:vIPI').content.to_f,
+      pis_value: imposto_total.at_xpath('xmlns:ICMSTot/xmlns:vPIS').content.to_f,
+      cofins_value: imposto_total.at_xpath('xmlns:ICMSTot/xmlns:vCOFINS').content.to_f,
+      invoice: nota_fiscal
+    )
+    
     nfe.xpath('//xmlns:det').each do |det|
       prod = det.at_xpath('xmlns:prod')
       imposto = det.at_xpath('xmlns:imposto')
@@ -74,19 +83,10 @@ class ProcessXmlJob < ApplicationJob
         invoice: nota_fiscal
       )
       
-      
-
-
-      Taxe.create!(
-        icms_value: imposto.at_xpath('xmlns:ICMS/xmlns:ICMS00/xmlns:vICMS').content.to_f,
-        ipi_value: imposto_total.at_xpath('xmlns:ICMSTot/xmlns:vIPI').content.to_f,
-        pis_value: imposto_total.at_xpath('xmlns:ICMSTot/xmlns:vPIS').content.to_f,
-        cofins_value: imposto_total.at_xpath('xmlns:ICMSTot/xmlns:vCOFINS').content.to_f,
-        product_id: produto.id
-      )
+    
     end
   ensure
     # Remove o arquivo temporário após o processamento
-    #File.delete(file_path) if File.exist?(file_path)
+    File.delete(file_path) if File.exist?(file_path)
   end
 end

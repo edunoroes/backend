@@ -77,6 +77,9 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
+    axlsx_rails (0.6.1)
+      actionpack (>= 3.1)
+      caxlsx (>= 3.0)
     base64 (0.2.0)
     bcrypt (3.1.20)
     bigdecimal (3.1.8)
@@ -92,6 +95,11 @@ GEM
       marcel (~> 1.0.0)
       mini_mime (>= 0.1.3)
       ssrf_filter (~> 1.0)
+    caxlsx (4.1.0)
+      htmlentities (~> 4.3, >= 4.3.4)
+      marcel (~> 1.0)
+      nokogiri (~> 1.10, >= 1.10.4)
+      rubyzip (>= 1.3.0, < 3)
     concurrent-ruby (1.3.4)
     connection_pool (2.4.1)
     crass (1.0.6)
@@ -123,6 +131,7 @@ GEM
     ffi (1.17.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    htmlentities (4.3.4)
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
     image_processing (1.13.0)
@@ -227,6 +236,7 @@ GEM
     ruby-vips (2.2.2)
       ffi (~> 1.12)
       logger
+    rubyzip (2.3.2)
     sidekiq (7.3.1)
       concurrent-ruby (< 2)
       connection_pool (>= 2.3.0)
@@ -257,6 +267,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  axlsx_rails
   bootsnap
   byebug
   carrierwave (~> 2.0)

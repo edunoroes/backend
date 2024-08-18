@@ -1,3 +1,3 @@
 class TaxEntity < ApplicationRecord
-has_many :invoices, class_name: "Invoice"
+belongs_to :invoice
 end

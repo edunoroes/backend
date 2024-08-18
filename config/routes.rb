@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
     get "up" => "rails/health#show", as: :rails_health_check
     get "home" => 'home#index'
+    get "invoices" => 'invoices#index'
+    get '/invoices/report' => 'invoices#report' 
     
     # Montar a interface web do Sidekiq
     mount Sidekiq::Web => '/sidekiq'
