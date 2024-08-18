@@ -47,6 +47,10 @@ group :development do
   # gem "spring"
 end
 
+group :production do
+  gem 'rack-cors'
+end
+
 gem 'devise'
 gem 'devise-jwt', '~> 0.10.0'
 gem 'warden-jwt_auth', '~> 0.7.0'
