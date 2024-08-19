@@ -55,3 +55,6 @@ ENTRYPOINT ["sh", "-c", "redis-server --daemonize yes && /rails/bin/docker-entry
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
 CMD ["rails", "server", "-b", "0.0.0.0"]
+
+# Expose port 6379 for Redis
+EXPOSE 6379
