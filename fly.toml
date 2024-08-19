@@ -56,7 +56,7 @@ console_command = '/rails/bin/rails console'
   internal_port = 6379
   protocol = "tcp"
 
-  [[services.ports]]
-    port = 6379
-    handlers = ["http"]
+[[services.ports]]
+  port = 6379
+  handlers = ["http"]
 
