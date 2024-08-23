@@ -281,7 +281,7 @@ DEPENDENCIES
   debug
   devise
   devise-jwt (~> 0.10.0)
-  dockerfile-rails (>= 1.6)
+  dockerfile-rails
   jbuilder
   jsonapi-serializer
   nokogiri

@@ -57,5 +57,4 @@ gem 'nokogiri'
 gem 'axlsx_rails'
 gem 'rack-cors'
 
-
-gem "dockerfile-rails", ">= 1.6", :group => :development
+gem "dockerfile-rails"

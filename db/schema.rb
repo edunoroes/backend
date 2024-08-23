@@ -15,9 +15,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_18_205324) do
     t.string "jti", null: false
     t.string "aud"
     t.datetime "exp", null: false
-    t.integer "your_user_table_id", null: false
+    t.integer "user_id", null: false
     t.index ["jti"], name: "index_allowlisted_jwts_on_jti", unique: true
-    t.index ["your_user_table_id"], name: "index_allowlisted_jwts_on_your_user_table_id"
+    t.index ["user_id"], name: "index_allowlisted_jwts_on_user_id"
   end
 
   create_table "documents", force: :cascade do |t|
@@ -101,7 +101,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_18_205324) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "allowlisted_jwts", "your_user_tables", on_delete: :cascade
+  add_foreign_key "allowlisted_jwts", "users", on_delete: :cascade
   add_foreign_key "documents", "users"
   add_foreign_key "invoices", "tax_entities", column: "emitent_id"
   add_foreign_key "invoices", "tax_entities", column: "recipient_id"
